@@ -55,10 +55,10 @@ chmod +x inferenced
 ./inferenced keys add gonka-account-key --keyring-backend file
 ```
 
-![Gambar](https://drive.google.com/uc?export=view&id=1iJT2W3V0wdbbrwoRfsOlMb3je03PaZoQ)
-
 You'll be asked for password, create your password and re enter.
 and then you'll see your gonka address, public key, and 24 memonic phrase.
+
+![Image](https://drive.google.com/uc?export=view&id=1iJT2W3V0wdbbrwoRfsOlMb3je03PaZoQ)
 
 #### Clone repositori
 ```sh
