@@ -60,19 +60,23 @@ and then you'll see your gonka address, public key, and 24 memonic phrase.
 
 ![Image](https://drive.google.com/uc?export=view&id=1iJT2W3V0wdbbrwoRfsOlMb3je03PaZoQ)
 
-#### Clone repositori
+### Clone repositori
 ```sh
 git clone https://github.com/gonka-ai/gonka.git -b main && \
 cd gonka/deploy/join
 ```
 
+```sh
 mkdir -p /mnt/shared
+```
 
 Copy Template
 
 ```sh
 cp config.env.template config.env
 ```
+
+Edit template
 
 ```sh
 nano config.env
@@ -103,7 +107,7 @@ Reload shell
 source config.env
 ```
 
-#### Download model
+### Download model
 
 ```sh
 mkdir -p $HF_HOME
@@ -117,19 +121,24 @@ export PATH="$HOME/.local/bin:$PATH"
 hf download Qwen/Qwen2.5-7B-Instruct
 ```
 
-#### Reload Shell
+### Reload Shell
 
 ```
 source config.env
 ```
 
-#### Run Node
+### Run Node
 
 1. Run full node
 
 ```bash
 docker compose -f docker-compose.yml -f docker-compose.mlnode.yml pull
 ```
+
+Wait untill you see all marked, like this image
+
+![Image](https://drive.google.com/uc?export=view&id=1IoMwtvEIDHcEnD5ZE6FUHdWu8U1GW9_d)
+
 
 2. Start Initial Server
 
