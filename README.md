@@ -195,6 +195,8 @@ Wait untill you see all marked, like this image
 source config.env && docker compose up tmkms node -d --no-deps
 ```
 
+3. Create ML Operational Key
+
 Note don't run this command bellow twice, only run one time
 
 ```bash
@@ -207,7 +209,7 @@ then enter
 printf '%s\n%s\n' "$KEYRING_PASSWORD" "$KEYRING_PASSWORD" | inferenced keys add "$KEY_NAME" --keyring-backend file
 ```
 
-3. Register your host
+4. Register your host
 
 ```bash
 inferenced register-new-participant \
