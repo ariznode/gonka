@@ -3,13 +3,13 @@
 Gonka is a decentralized AI infrastructure designed to optimize computational power for AI model training and inference, offering an alternative to monopolistic, high-cost, centralized cloud providers. As AI models become increasingly complex, their computational demands surge, presenting significant challenges for developers and businesses that rely on costly, centralized resources.
 
 
-#### Install Docker
+### Install Docker
 
 ```sh
 
 ```
 
-#### Install Nvidia
+### Install Nvidia
 
 ```sh
 curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | \
@@ -34,7 +34,7 @@ Restart docker
 sudo systemctl restart docker
 ```
 
-#### download inference
+### download inference
 
 ```sh
 curl -L "https://github.com/gonka-ai/gonka/releases/download/release%2Fv0.2.5/inferenced-linux-amd64.zip" -o inferenced-linux-amd64.zip
@@ -49,7 +49,9 @@ chmod +x inferenced
 ./inferenced --help
 ```
 
-#### Create Gonka Wallet
+### Create Gonka Wallet
+
+Note : If you allready create wallet no need to create again next time, you can skip this and go to next step.
 
 ```sh
 ./inferenced keys add gonka-account-key --keyring-backend file
