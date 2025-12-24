@@ -60,6 +60,8 @@ and then you'll see your gonka address, public key, and 24 memonic phrase.
 
 ![Image](https://drive.google.com/uc?export=view&id=1iJT2W3V0wdbbrwoRfsOlMb3je03PaZoQ)
 
+Then press CTRL + C, then run next command...
+
 ### Clone repositori
 ```sh
 git clone https://github.com/gonka-ai/gonka.git -b main && \
