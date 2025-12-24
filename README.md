@@ -165,6 +165,6 @@ exit
 
 after register your host :
 
-- Visit http://node2.gonka.ai:8000/v1/participants/<your-gonka-address>
-- Replace<your-gonka-address> with yours.
+- Visit http://node2.gonka.ai:8000/v1/participants/your-gonka-address
+- Replace your-gonka-address with yours.
 - make sure to see on site "{"pubkey":"your-pubkey"}"
