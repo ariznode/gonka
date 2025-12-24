@@ -6,9 +6,10 @@ Gonka is a decentralized AI infrastructure designed to optimize computational po
 #### Download Docker
 
 ```bash
-apt update
-apt install -y ca-certificates curl gnupg lsb-release
-curl -fsSL https://get.docker.com | sh
+sudo apt update -y
+sudo apt upgrade -y
+sudo apt install git docker.io -y
+sudo apt install docker-compose -y
 ```
 Check Docker version
 
@@ -46,6 +47,8 @@ and then you'll see your gonka address and 24 memonic phrase
 git clone https://github.com/gonka-ai/gonka.git -b main && \
 cd gonka/deploy/join
 ```
+
+mkdir -p /mnt/shared
 
 Copy Template
 
