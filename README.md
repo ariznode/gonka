@@ -6,23 +6,32 @@ Gonka is a decentralized AI infrastructure designed to optimize computational po
 #### Install Docker
 
 ```bash
-sudo apt update -y
-sudo apt upgrade -y
-sudo apt install git docker.io -y
-sudo apt install docker-compose -y
-```
-Check Docker version
 
-```bash
-docker --version
 ```
 
 #### Install Nvidia
 
 ```bash
-sudo apt install nvidia-container-toolkit -y
+curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | \
+sudo gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg
+```
+
+```bash
+curl -s -L https://nvidia.github.io/libnvidia-container/stable/deb/nvidia-container-toolkit.list | \
+sed 's#deb https://#deb [signed-by=/usr/share/keyrings/nvidia-container-toolkit-keyring.gpg] https://#g' | \
+sudo tee /etc/apt/sources.list.d/nvidia-container-toolkit.list
+```
+
+```bash
+sudo apt update
+sudo apt install -y nvidia-container-toolkit
 sudo nvidia-ctk runtime configure --runtime=docker
-systemctl restart docker
+```
+
+Restart docker
+
+```bash
+sudo systemctl restart docker
 ```
 
 #### download inference
@@ -97,8 +106,31 @@ source config.env
 
 #### Run Node
 
+1. Run full node
+
+```bash
 docker compose -f docker-compose.yml -f docker-compose.mlnode.yml pull
+```
 
+2. Start Initial Server
 
+```bash
+source config.env && docker compose up tmkms node -d --no-deps
+```
 
+3. Register your host
 
+```bash
+inferenced register-new-participant \
+    $DAPI_API__PUBLIC_URL \
+    $ACCOUNT_PUBKEY \
+    --node-address $DAPI_CHAIN_NODE__SEED_API_URL
+```
+
+Enter
+
+```
+exit
+```
+
+after register
