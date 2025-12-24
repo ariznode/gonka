@@ -3,7 +3,7 @@
 Gonka is a decentralized AI infrastructure designed to optimize computational power for AI model training and inference, offering an alternative to monopolistic, high-cost, centralized cloud providers. As AI models become increasingly complex, their computational demands surge, presenting significant challenges for developers and businesses that rely on costly, centralized resources.
 
 
-#### Download Docker
+#### Install Docker
 
 ```bash
 sudo apt update -y
@@ -17,6 +17,13 @@ Check Docker version
 docker --version
 ```
 
+#### Install Nvidia
+
+```bash
+sudo apt install nvidia-container-toolkit -y
+sudo nvidia-ctk runtime configure --runtime=docker
+systemctl restart docker
+```
 
 #### download inference
 
