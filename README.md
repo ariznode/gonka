@@ -5,24 +5,24 @@ Gonka is a decentralized AI infrastructure designed to optimize computational po
 
 #### Install Docker
 
-```bash
+```sh
 
 ```
 
 #### Install Nvidia
 
-```bash
+```sh
 curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | \
 sudo gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg
 ```
 
-```bash
+```sh
 curl -s -L https://nvidia.github.io/libnvidia-container/stable/deb/nvidia-container-toolkit.list | \
 sed 's#deb https://#deb [signed-by=/usr/share/keyrings/nvidia-container-toolkit-keyring.gpg] https://#g' | \
 sudo tee /etc/apt/sources.list.d/nvidia-container-toolkit.list
 ```
 
-```bash
+```sh
 sudo apt update
 sudo apt install -y nvidia-container-toolkit
 sudo nvidia-ctk runtime configure --runtime=docker
@@ -30,13 +30,13 @@ sudo nvidia-ctk runtime configure --runtime=docker
 
 Restart docker
 
-```bash
+```sh
 sudo systemctl restart docker
 ```
 
 #### download inference
 
-```bash
+```sh
 curl -L "https://github.com/gonka-ai/gonka/releases/download/release%2Fv0.2.5/inferenced-linux-amd64.zip" -o inferenced-linux-amd64.zip
 apt update && apt install -y unzip
 unzip inferenced-linux-amd64.zip
@@ -44,14 +44,14 @@ unzip inferenced-linux-amd64.zip
 
 Give Permission
 
-```bash
+```sh
 chmod +x inferenced
 ./inferenced --help
 ```
 
 #### Create Gonka Wallet
 
-```bash
+```sh
 ./inferenced keys add gonka-account-key --keyring-backend file
 ```
 
@@ -59,7 +59,7 @@ You'll be asked for password, create your password and re enter.
 and then you'll see your gonka address and 24 memonic phrase
 
 #### Clone repositori
-```
+```sh
 git clone https://github.com/gonka-ai/gonka.git -b main && \
 cd gonka/deploy/join
 ```
@@ -68,13 +68,30 @@ mkdir -p /mnt/shared
 
 Copy Template
 
-```bash
+```sh
 cp config.env.template config.env
 ```
 
-```bash
+```sh
 nano config.env
 ```
+
+Then you'll see...
+
+```bash
+export KEY_NAME=nodename
+export KEYRING_PASSWORD=your-password
+export PUBLIC_URL=http://your-ip:8000
+export P2P_EXTERNAL_ADDRESS=tcp://your-ip:5000
+export ACCOUNT_PUBKEY=your-pubkey
+```
+
+and only change this part : 
+
+- nodename
+- your-password
+- your-ip
+- your-pubkey
 
 eddit cencored with yours
 
