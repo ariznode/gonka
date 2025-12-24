@@ -31,7 +31,7 @@ sudo apt update && sudo apt upgrade -y
 sudo apt install screen curl iptables build-essential git wget lz4 jq make gcc nano automake autoconf tmux htop nvme-cli libgbm1 pkg-config libssl-dev libleveldb-dev tar clang bsdmainutils ncdu unzip libleveldb-dev -y
 ```
 
-### Docker
+### Install Docker
 ```bash
 sudo apt update -y && sudo apt upgrade -y
 for pkg in docker.io docker-doc docker-compose podman-docker containerd runc; do sudo apt-get remove $pkg; done
@@ -195,6 +195,18 @@ Wait untill you see all marked, like this image
 source config.env && docker compose up tmkms node -d --no-deps
 ```
 
+Note don't run this command bellow twice, only run one time
+
+```bash
+docker compose run --rm --no-deps -it api /bin/sh
+```
+
+then enter
+
+```bash
+printf '%s\n%s\n' "$KEYRING_PASSWORD" "$KEYRING_PASSWORD" | inferenced keys add "$KEY_NAME" --keyring-backend file
+```
+
 3. Register your host
 
 ```bash
@@ -216,3 +228,26 @@ after register your host :
 - Visit : http://node2.gonka.ai:8000/v1/participants/your-gonka-address
 - Replace your-gonka-address with yours.
 - make sure to see on site "{"pubkey":"your-pubkey"}"
+
+Wait untill 24 hours, then check your address transaction on Gonka block explorer
+
+- visit : http://node2.gonka.ai:8000/dashboard/gonka/
+- paste your gonka address.
+- then check your tx.
+
+![Image](https://drive.google.com/uc?export=view&id=1MZzI_80cairjwQAdjv9YoZQtkOjpp7DE)
+
+### Key command
+
+Stop node
+
+```
+docker compose down -d
+```
+
+Check node logs
+
+```
+docker compose logs tmkms node -f
+```
+
