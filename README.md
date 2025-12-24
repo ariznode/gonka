@@ -2,6 +2,21 @@
 
 Gonka is a decentralized AI infrastructure designed to optimize computational power for AI model training and inference, offering an alternative to monopolistic, high-cost, centralized cloud providers. As AI models become increasingly complex, their computational demands surge, presenting significant challenges for developers and businesses that rely on costly, centralized resources.
 
+
+#### Download Docker
+
+```bash
+apt update
+apt install -y ca-certificates curl gnupg lsb-release
+curl -fsSL https://get.docker.com | sh
+```
+Check Docker version
+
+```bash
+docker --version
+```
+
+
 #### download inference
 
 ```bash
@@ -10,7 +25,7 @@ apt update && apt install -y unzip
 unzip inferenced-linux-amd64.zip
 ```
 
-#### Give Permission
+Give Permission
 
 ```bash
 chmod +x inferenced
@@ -32,7 +47,8 @@ git clone https://github.com/gonka-ai/gonka.git -b main && \
 cd gonka/deploy/join
 ```
 
-#### Copy Template
+Copy Template
+
 ```bash
 cp config.env.template config.env
 ```
@@ -43,7 +59,7 @@ nano config.env
 
 eddit cencored with yours
 
-#### Reload Shell
+Reload shell
 
 ```
 source config.env
@@ -68,5 +84,11 @@ hf download Qwen/Qwen2.5-7B-Instruct
 ```
 source config.env
 ```
+
+#### Run Node
+
+docker compose -f docker-compose.yml -f docker-compose.mlnode.yml pull
+
+
 
 
