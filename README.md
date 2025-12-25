@@ -204,12 +204,6 @@ docker compose run --rm --no-deps -it api /bin/sh
 Paste this inside container
 
 ```bash
-printf '%s\n%s\n' "$KEYRING_PASSWORD" "$KEYRING_PASSWORD" | inferenced keys add "$KEY_NAME" --keyring-backend file
-```
-
-then
-
-```bash
 inferenced register-new-participant \
     $DAPI_API__PUBLIC_URL \
     $ACCOUNT_PUBKEY \
