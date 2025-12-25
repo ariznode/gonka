@@ -241,7 +241,7 @@ after register your host :
 - Replace your-gonka-address with yours.
 - make sure to see on site "{"pubkey":"your-pubkey"}"
 
-Wait untill 24 hours, then check your address transaction on Gonka block explorer
+Check your address transaction on Gonka block explorer
 
 - visit : http://node2.gonka.ai:8000/dashboard/gonka/
 - paste your gonka address.
