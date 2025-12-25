@@ -107,7 +107,6 @@ and then you'll see your gonka address, public key, and 24 memonic phrase.
 
 ![Image](https://drive.google.com/uc?export=view&id=1iJT2W3V0wdbbrwoRfsOlMb3je03PaZoQ)
 
-Then press CTRL + C, then run next command...
 ### Clone repositori
 ```sh
 git clone https://github.com/gonka-ai/gonka.git -b main && \
@@ -187,17 +186,12 @@ Wait untill you see all marked, like this image
 
 ![Image](https://drive.google.com/uc?export=view&id=1IoMwtvEIDHcEnD5ZE6FUHdWu8U1GW9_d)
 
+Then press CTRL + C, then run next command...
 
 2. Start Initial Server
 
 ```bash
 source config.env && docker compose up tmkms node -d --no-deps
-```
-
-Enter
-
-```
-exit
 ```
 
 
@@ -208,6 +202,12 @@ inferenced register-new-participant \
     $DAPI_API__PUBLIC_URL \
     $ACCOUNT_PUBKEY \
     --node-address $DAPI_CHAIN_NODE__SEED_API_URL
+```
+
+Enter
+
+```
+exit
 ```
 
 after register your host :
