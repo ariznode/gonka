@@ -117,24 +117,7 @@ source config.env
 
 ### Run Node
 
-1. Run full node
-
-```bash
-docker compose -f docker-compose.yml -f docker-compose.mlnode.yml pull
-```
-
-Wait untill you see all marked, like this image
-
-![Image](https://drive.google.com/uc?export=view&id=1IoMwtvEIDHcEnD5ZE6FUHdWu8U1GW9_d)
-
-
-2. Start Initial Server
-
-```bash
-source config.env && docker compose up tmkms node -d --no-deps
-```
-
-3. Create ML Operational Key (this steps to create address for rented)
+1. Create ML Operational Key (this steps to create addres)
 
 Note don't run this command bellow twice, only run one time
 
@@ -189,13 +172,30 @@ Reload shell
 source config.env
 ```
 
-4. Register your host
+2. Register your host
 
 ```bash
 inferenced register-new-participant \
     $DAPI_API__PUBLIC_URL \
     $ACCOUNT_PUBKEY \
     --node-address $DAPI_CHAIN_NODE__SEED_API_URL
+```
+
+3. Run full node
+
+```bash
+docker compose -f docker-compose.yml -f docker-compose.mlnode.yml pull
+```
+
+Wait untill you see all marked, like this image
+
+![Image](https://drive.google.com/uc?export=view&id=1IoMwtvEIDHcEnD5ZE6FUHdWu8U1GW9_d)
+
+
+4. Start Initial Server
+
+```bash
+source config.env && docker compose up tmkms node -d --no-deps
 ```
 
 Enter
