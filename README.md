@@ -94,6 +94,20 @@ chmod +x inferenced
 ./inferenced --help
 ```
 
+### Create Gonka Wallet
+
+Note : If you allready create wallet no need to create again next time, you can skip this and go to next step.
+
+```sh
+./inferenced keys add gonka-account-key --keyring-backend file
+```
+
+You'll be asked for password, create your password and re enter.
+and then you'll see your gonka address, public key, and 24 memonic phrase.
+
+![Image](https://drive.google.com/uc?export=view&id=1iJT2W3V0wdbbrwoRfsOlMb3je03PaZoQ)
+
+Then press CTRL + C, then run next command...
 ### Clone repositori
 ```sh
 git clone https://github.com/gonka-ai/gonka.git -b main && \
@@ -109,52 +123,6 @@ Copy Template
 ```sh
 cp config.env.template config.env
 ```
-
-### Download model
-
-```sh
-mkdir -p $HF_HOME
-sudo apt update && sudo apt install -y python3-pip
-sudo apt install -y pipx
-pipx install huggingface_hub[cli]
-pipx ensurepath
-pipx install --force huggingface_hub[cli]
-export PATH="$HOME/.local/bin:$PATH" && which hf
-export PATH="$HOME/.local/bin:$PATH"
-hf download Qwen/Qwen2.5-7B-Instruct
-```
-
-### Reload Shell
-
-```
-source config.env
-```
-
-### Run Node
-
-1. Create ML Operational Key (this steps to create addres)
-
-Note don't run this command bellow twice, only run one time
-
-```bash
-docker compose run --rm --no-deps -it api /bin/sh
-```
-
-then enter
-
-```bash
-printf '%s\n%s\n' "$KEYRING_PASSWORD" "$KEYRING_PASSWORD" | inferenced keys add "$KEY_NAME" --keyring-backend file
-```
-
-run exit after seeing your new address, save it you'll need it later
-
-![Image](https://drive.google.com/uc?export=view&id=1iJT2W3V0wdbbrwoRfsOlMb3je03PaZoQ)
-
-```
-exit
-```
-
-edit your address with this address
 
 Edit template
 
@@ -196,7 +164,29 @@ inferenced register-new-participant \
     --node-address $DAPI_CHAIN_NODE__SEED_API_URL
 ```
 
-3. Run full node
+### Download model
+
+```sh
+mkdir -p $HF_HOME
+sudo apt update && sudo apt install -y python3-pip
+sudo apt install -y pipx
+pipx install huggingface_hub[cli]
+pipx ensurepath
+pipx install --force huggingface_hub[cli]
+export PATH="$HOME/.local/bin:$PATH" && which hf
+export PATH="$HOME/.local/bin:$PATH"
+hf download Qwen/Qwen2.5-7B-Instruct
+```
+
+### Reload Shell
+
+```
+source config.env
+```
+
+### Run Node
+
+1. Run full node
 
 ```bash
 docker compose -f docker-compose.yml -f docker-compose.mlnode.yml pull
@@ -207,7 +197,7 @@ Wait untill you see all marked, like this image
 ![Image](https://drive.google.com/uc?export=view&id=1IoMwtvEIDHcEnD5ZE6FUHdWu8U1GW9_d)
 
 
-4. Start Initial Server
+2. Start Initial Server
 
 ```bash
 source config.env && docker compose up tmkms node -d --no-deps
