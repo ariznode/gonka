@@ -79,36 +79,6 @@ Restart docker
 sudo systemctl restart docker
 ```
 
-### download inference (for local, for rented you can skip this)
-
-```sh
-curl -L "https://github.com/gonka-ai/gonka/releases/download/release%2Fv0.2.5/inferenced-linux-amd64.zip" -o inferenced-linux-amd64.zip
-apt update && apt install -y unzip
-unzip inferenced-linux-amd64.zip
-```
-
-Give Permission
-
-```sh
-chmod +x inferenced
-./inferenced --help
-```
-
-### Create Gonka Wallet
-
-Note : If you allready create wallet no need to create again next time, you can skip this and go to next step.
-
-```sh
-./inferenced keys add gonka-account-key --keyring-backend file
-```
-
-You'll be asked for password, create your password and re enter.
-and then you'll see your gonka address, public key, and 24 memonic phrase.
-
-![Image](https://drive.google.com/uc?export=view&id=1iJT2W3V0wdbbrwoRfsOlMb3je03PaZoQ)
-
-Then press CTRL + C, then run next command...
-
 ### Clone repositori
 ```sh
 git clone https://github.com/gonka-ai/gonka.git -b main && \
