@@ -216,6 +216,12 @@ then
 exit
 ```
 
+if it error, you can check your pubkey with this command, and edit convig.env
+
+```bash
+cat ~/.inference/config/priv_validator_key.json
+```
+
 after register your host :
 
 - Open your browser.
