@@ -11,7 +11,7 @@ Make sure to rent Device with VM OS, you can rent on with this link.
 
 Specifications for this model :
 
-- Storage : 200 GB recommended.
+- Storage : 100 GB recommended.
 
 - 1X RTX 3090 (2X RTX 3090 recommended).
 - 1X RTX 4090 (2X RTX 4090 recommended).
