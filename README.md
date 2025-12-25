@@ -79,7 +79,7 @@ Restart docker
 sudo systemctl restart docker
 ```
 
-### download inference (for local, for rented you can skip this)
+### Download inference
 
 ```sh
 curl -L "https://github.com/gonka-ai/gonka/releases/download/release%2Fv0.2.5/inferenced-linux-amd64.zip" -o inferenced-linux-amd64.zip
