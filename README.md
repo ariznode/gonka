@@ -125,37 +125,6 @@ Copy Template
 cp config.env.template config.env
 ```
 
-Edit template
-
-```sh
-nano config.env
-```
-
-Then you'll see...
-
-```bash
-export KEY_NAME=nodename
-export KEYRING_PASSWORD=your-password
-export PUBLIC_URL=http://your-ip:8000
-export P2P_EXTERNAL_ADDRESS=tcp://your-ip:5000
-export ACCOUNT_PUBKEY=your-pubkey
-```
-
-and only change this part : 
-
-- nodename
-- your-password
-- your-ip
-- your-pubkey
-
-eddit cencored with yours
-
-Reload shell
-
-```
-source config.env
-```
-
 ### Download model
 
 ```sh
@@ -211,8 +180,43 @@ printf '%s\n%s\n' "$KEYRING_PASSWORD" "$KEYRING_PASSWORD" | inferenced keys add 
 
 run exit after seeing your new address, save it you'll need it later
 
+![Image](https://drive.google.com/uc?export=view&id=1iJT2W3V0wdbbrwoRfsOlMb3je03PaZoQ)
+
 ```
 exit
+```
+
+edit your address with this address
+
+Edit template
+
+```sh
+nano config.env
+```
+
+Then you'll see...
+
+```bash
+export KEY_NAME=nodename
+export KEYRING_PASSWORD=your-password
+export PUBLIC_URL=http://your-ip:8000
+export P2P_EXTERNAL_ADDRESS=tcp://your-ip:5000
+export ACCOUNT_PUBKEY=your-pubkey
+```
+
+and only change this part : 
+
+- nodename
+- your-password
+- your-ip
+- your-pubkey
+
+eddit cencored with yours
+
+Reload shell
+
+```
+source config.env
 ```
 
 4. Register your host
