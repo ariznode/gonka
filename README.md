@@ -197,6 +197,12 @@ source config.env && docker compose up tmkms node -d --no-deps
 
 3. Register your host
 
+Run container
+```bash
+docker compose run --rm --no-deps -it api /bin/sh
+```
+Paste this inside container
+
 ```bash
 inferenced register-new-participant \
     $DAPI_API__PUBLIC_URL \
