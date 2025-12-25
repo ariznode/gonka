@@ -224,7 +224,7 @@ Check your address transaction on Gonka block explorer
 Stop node
 
 ```
-docker compose down -d
+docker compose down
 ```
 
 Check node logs
