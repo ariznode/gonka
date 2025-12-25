@@ -226,6 +226,11 @@ Check your address transaction on Gonka block explorer
 ![Image](https://drive.google.com/uc?export=view&id=1MZzI_80cairjwQAdjv9YoZQtkOjpp7DE)
 
 ### Key command
+Check node logs
+
+```
+docker compose logs tmkms node -f
+```
 
 Stop node
 
@@ -233,9 +238,5 @@ Stop node
 docker compose down
 ```
 
-Check node logs
 
-```
-docker compose logs tmkms node -f
-```
 
