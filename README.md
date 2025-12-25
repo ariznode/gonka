@@ -209,6 +209,12 @@ then enter
 printf '%s\n%s\n' "$KEYRING_PASSWORD" "$KEYRING_PASSWORD" | inferenced keys add "$KEY_NAME" --keyring-backend file
 ```
 
+run exit after seeing your new address, save it you'll need it later
+
+```
+exit
+```
+
 4. Register your host
 
 ```bash
