@@ -79,7 +79,7 @@ Restart docker
 sudo systemctl restart docker
 ```
 
-### download inference
+### download inference (for local, for rented you can skip this)
 
 ```sh
 curl -L "https://github.com/gonka-ai/gonka/releases/download/release%2Fv0.2.5/inferenced-linux-amd64.zip" -o inferenced-linux-amd64.zip
@@ -195,7 +195,7 @@ Wait untill you see all marked, like this image
 source config.env && docker compose up tmkms node -d --no-deps
 ```
 
-3. Create ML Operational Key
+3. Create ML Operational Key (this steps to create address for rented)
 
 Note don't run this command bellow twice, only run one time
 
