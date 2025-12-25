@@ -155,15 +155,6 @@ Reload shell
 source config.env
 ```
 
-2. Register your host
-
-```bash
-inferenced register-new-participant \
-    $DAPI_API__PUBLIC_URL \
-    $ACCOUNT_PUBKEY \
-    --node-address $DAPI_CHAIN_NODE__SEED_API_URL
-```
-
 ### Download model
 
 ```sh
@@ -207,6 +198,16 @@ Enter
 
 ```
 exit
+```
+
+
+3. Register your host
+
+```bash
+inferenced register-new-participant \
+    $DAPI_API__PUBLIC_URL \
+    $ACCOUNT_PUBKEY \
+    --node-address $DAPI_CHAIN_NODE__SEED_API_URL
 ```
 
 after register your host :
