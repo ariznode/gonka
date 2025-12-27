@@ -110,7 +110,7 @@ and then you'll see your gonka address, public key, and 24 memonic phrase.
 ### Clone repositori
 ```sh
 git clone https://github.com/gonka-ai/gonka.git -b main && \
-cd gonka/deploy/join
+cd gonka/deploy/join && pwd
 ```
 
 ```sh
