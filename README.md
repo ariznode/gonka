@@ -215,7 +215,7 @@ Register host
 inferenced register-new-participant \
     http://your-ip:8000 \
     first-pubkey \
-    --node-address $DAPI_CHAIN_NODE__SEED_API_URL
+    --node-address http://node1.gonka.ai:8000
 ```
 
 * change your-ip
