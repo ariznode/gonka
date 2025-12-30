@@ -176,7 +176,7 @@ source config.env
 
 ### Run Node
 
-1. Run full node
+1. Run node
 
 ```bash
 docker compose -f docker-compose.yml -f docker-compose.mlnode.yml pull
