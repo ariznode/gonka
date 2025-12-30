@@ -213,9 +213,9 @@ Register host
 
 ```bash
 inferenced register-new-participant \
-    http://your-ip:8000 \
-    first-pubkey \
-    --node-address http://node2.gonka.ai:8000
+    $DAPI_API__PUBLIC_URL \
+    $ACCOUNT_PUBKEY \
+    --node-address $DAPI_CHAIN_NODE__SEED_API_URL
 ```
 
 * change your-ip
