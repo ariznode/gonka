@@ -203,12 +203,23 @@ docker compose run --rm --no-deps -it api /bin/sh
 ```
 Paste this inside container
 
+ML operation key, and save your ML details
+
+```bash
+printf '%s\n%s\n' "$KEYRING_PASSWORD" "$KEYRING_PASSWORD" | inferenced keys add "$KEY_NAME" --keyring-backend file
+```
+
+Register host
+
 ```bash
 inferenced register-new-participant \
-    $DAPI_API__PUBLIC_URL \
-    $ACCOUNT_PUBKEY \
+    http://your-ip:8000 \
+    first-pubkey \
     --node-address $DAPI_CHAIN_NODE__SEED_API_URL
 ```
+
+* change your-ip
+* change first-pubkey with your pubkey at first step
 
 then
 
@@ -228,6 +239,29 @@ after register your host :
 - Visit : http://node2.gonka.ai:8000/v1/participants/your-gonka-address
 - Replace your-gonka-address with yours.
 - make sure to see on site "{"pubkey":"your-pubkey"}"
+
+### Grant permission
+
+```bash
+cd
+./inferenced tx inference grant-ml-ops-permissions \
+    gonka-account-key \
+    <ml-address> \
+    --from gonka-account-key \
+    --keyring-backend file \
+    --gas 2000000 \
+    --node http://node1.gonka.ai:8000/chain-rpc/
+```
+
+change ml address with your ml at ml key step.
+
+### Start Full Node
+
+```bash
+cd ~/gonka/deploy/join
+source config.env && \
+docker compose -f docker-compose.yml -f docker-compose.mlnode.yml up -d
+```
 
 Check your address transaction on Gonka block explorer
 
