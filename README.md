@@ -13,9 +13,10 @@ Specifications for this model :
 
 - Storage : 100 GB recommended.
 
-- 1X RTX 3090 (2X RTX 3090 recommended).
-- 1X RTX 4090 (2X RTX 4090 recommended).
-- 1X RTX 5090 (2X RTX 5090 recommended).
+- 2X RTX 3090.
+- 2X RTX 4090.
+- 2X RTX 5090.
+- 1X L40S.
 - 1X A100.
 - 1X H100.
 
