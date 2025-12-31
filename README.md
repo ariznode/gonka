@@ -22,7 +22,7 @@ Specifications for this model :
 
 ## Installation
 
-### 1. (Server/Rented) Install Dependencies
+### 1. Install Dependencies
 
 ```bash
 sudo apt update && sudo apt upgrade -y
@@ -32,7 +32,7 @@ sudo apt update && sudo apt upgrade -y
 sudo apt install screen curl iptables build-essential git wget lz4 jq make gcc nano automake autoconf tmux htop nvme-cli libgbm1 pkg-config libssl-dev libleveldb-dev tar clang bsdmainutils ncdu unzip libleveldb-dev -y
 ```
 
-### 2. (Server/Rented) Install Docker
+### 2. Install Docker
 ```bash
 sudo apt update -y && sudo apt upgrade -y
 for pkg in docker.io docker-doc docker-compose podman-docker containerd runc; do sudo apt-get remove $pkg; done
@@ -55,7 +55,7 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin 
 sudo docker run hello-world
 ```
 
-### 3. (Server/Rented) Install Nvidia
+### 3. Install Nvidia
 
 ```sh
 curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | \
@@ -80,7 +80,7 @@ Restart docker
 sudo systemctl restart docker
 ```
 
-### 4 (on Local PC) Download inference
+### 4 Download inference
 
 ```sh
 wget https://github.com/gonka-ai/gonka/releases/download/release%2Fv0.2.6-post1/inferenced-linux-amd64.zip && unzip inferenced-linux-amd64.zip
@@ -88,14 +88,14 @@ apt update && apt install -y unzip
 unzip inferenced-linux-amd64.zip
 ```
 
-### 4.1 (on Local PC) Give Permission
+### 4.1 Give Permission
 
 ```sh
 chmod +x inferenced
 ./inferenced --help
 ```
 
-### 4.2 (on Local PC) Create Gonka Wallet
+### 4.2 Create Gonka Wallet
 
 Note : If you allready create wallet no need to create again next time, you can skip this and go to next step.
 
@@ -108,7 +108,7 @@ and then you'll see your gonka address, public key, and 24 memonic phrase.
 
 ![Image](https://drive.google.com/uc?export=view&id=1iJT2W3V0wdbbrwoRfsOlMb3je03PaZoQ)
 
-### 5. (Server/Rented) Clone repositori
+### 5. Clone repositori
 ```sh
 git clone https://github.com/gonka-ai/gonka.git -b main && \
 cd gonka/deploy/join && pwd
@@ -156,7 +156,7 @@ Reload shell
 source config.env
 ```
 
-### 6. (Server/Rented) Download model
+### 6. Download model
 
 ```sh
 mkdir -p $HF_HOME
@@ -176,7 +176,7 @@ hf download Qwen/Qwen2.5-7B-Instruct
 source config.env
 ```
 
-### 7. (Server/Rented) Run Node
+### 7. Run Node
 
 7.1. Run node
 
@@ -248,7 +248,7 @@ cd
 
 change ml address with your ml step 7.4.
 
-### 9. (Server/Rented) Start Full Node
+### 9. Start Full Node
 
 ```bash
 cd ~/gonka/deploy/join
