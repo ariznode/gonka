@@ -21,7 +21,7 @@ Specifications for this model :
 
 ## Installation
 
-### Install Dependencies
+### 1. (Server/Rented) Install Dependencies
 
 ```bash
 sudo apt update && sudo apt upgrade -y
@@ -31,7 +31,7 @@ sudo apt update && sudo apt upgrade -y
 sudo apt install screen curl iptables build-essential git wget lz4 jq make gcc nano automake autoconf tmux htop nvme-cli libgbm1 pkg-config libssl-dev libleveldb-dev tar clang bsdmainutils ncdu unzip libleveldb-dev -y
 ```
 
-### Install Docker
+### 2. (Server/Rented) Install Docker
 ```bash
 sudo apt update -y && sudo apt upgrade -y
 for pkg in docker.io docker-doc docker-compose podman-docker containerd runc; do sudo apt-get remove $pkg; done
@@ -54,7 +54,7 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin 
 sudo docker run hello-world
 ```
 
-### Install Nvidia
+### 3. (Server/Rented) Install Nvidia
 
 ```sh
 curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | \
@@ -79,7 +79,7 @@ Restart docker
 sudo systemctl restart docker
 ```
 
-### Download inference
+### 4 (on Local PC) Download inference
 
 ```sh
 wget https://github.com/gonka-ai/gonka/releases/download/release%2Fv0.2.6-post1/inferenced-linux-amd64.zip && unzip inferenced-linux-amd64.zip
@@ -87,14 +87,14 @@ apt update && apt install -y unzip
 unzip inferenced-linux-amd64.zip
 ```
 
-Give Permission
+### 4.1 (on Local PC) Give Permission
 
 ```sh
 chmod +x inferenced
 ./inferenced --help
 ```
 
-### Create Gonka Wallet
+### 4.2 (on Local PC) Create Gonka Wallet
 
 Note : If you allready create wallet no need to create again next time, you can skip this and go to next step.
 
@@ -107,7 +107,7 @@ and then you'll see your gonka address, public key, and 24 memonic phrase.
 
 ![Image](https://drive.google.com/uc?export=view&id=1iJT2W3V0wdbbrwoRfsOlMb3je03PaZoQ)
 
-### Clone repositori
+### 5. (Server/Rented) Clone repositori
 ```sh
 git clone https://github.com/gonka-ai/gonka.git -b main && \
 cd gonka/deploy/join && pwd
@@ -137,6 +137,7 @@ export KEYRING_PASSWORD=your-password
 export PUBLIC_URL=http://your-ip:8000
 export P2P_EXTERNAL_ADDRESS=tcp://your-ip:5000
 export ACCOUNT_PUBKEY=your-pubkey
+export SEED_API_URL=http://node1.gonka.ai:8000
 ```
 
 and only change this part : 
@@ -154,7 +155,7 @@ Reload shell
 source config.env
 ```
 
-### Download model
+### 6. (Server/Rented) Download model
 
 ```sh
 mkdir -p $HF_HOME
@@ -174,9 +175,9 @@ hf download Qwen/Qwen2.5-7B-Instruct
 source config.env
 ```
 
-### Run Node
+### 7. (Server/Rented) Run Node
 
-1. Run node
+7.1. Run node
 
 ```bash
 docker compose -f docker-compose.yml -f docker-compose.mlnode.yml pull
@@ -188,14 +189,14 @@ Wait untill you see all marked, like this image
 
 Then press CTRL + C, then run next command...
 
-2. Start Initial Server
+7.2. Start Initial Server
 
 ```bash
 source config.env && docker compose up tmkms node -d --no-deps
 ```
 
 
-3. Register your host
+7.3. Register your host
 
 Run container
 ```bash
@@ -203,7 +204,7 @@ docker compose run --rm --no-deps -it api /bin/sh
 ```
 Paste this inside container
 
-ML operation key, and save your ML details
+7.4. ML operation key, and save your ML details
 
 ```bash
 printf '%s\n%s\n' "$KEYRING_PASSWORD" "$KEYRING_PASSWORD" | inferenced keys add "$KEY_NAME" --keyring-backend file
@@ -218,29 +219,20 @@ inferenced register-new-participant \
     --node-address $DAPI_CHAIN_NODE__SEED_API_URL
 ```
 
-* change your-ip
-* change first-pubkey with your pubkey at first step
-
 then
 
 ```
 exit
 ```
 
-if it error, you can check your pubkey with this command, and edit convig.env
-
-```bash
-cat ~/.inference/config/priv_validator_key.json
-```
-
 after register your host :
 
 - Open your browser.
-- Visit : http://node2.gonka.ai:8000/v1/participants/your-gonka-address
+- Visit : http://node1.gonka.ai:8000/v1/participants/your-gonka-address
 - Replace your-gonka-address with yours.
 - make sure to see on site "{"pubkey":"your-pubkey"}"
 
-### Grant permission
+### 8.1 (On Local PC) Grant permission
 
 ```bash
 cd
@@ -253,9 +245,9 @@ cd
     --node http://node1.gonka.ai:8000/chain-rpc/
 ```
 
-change ml address with your ml at ml key step.
+change ml address with your ml step 7.4.
 
-### Start Full Node
+### 9. (Server/Rented) Start Full Node
 
 ```bash
 cd ~/gonka/deploy/join
@@ -265,22 +257,47 @@ docker compose -f docker-compose.yml -f docker-compose.mlnode.yml up -d
 
 Check your address transaction on Gonka block explorer
 
-- visit : http://node2.gonka.ai:8000/dashboard/gonka/
+- visit : http://node1.gonka.ai:8000/dashboard/gonka/
 - paste your gonka address.
 - then check your tx.
 
 ![Image](https://drive.google.com/uc?export=view&id=1MZzI_80cairjwQAdjv9YoZQtkOjpp7DE)
 
-### Key command
-Check node logs
+### 10. Key command
 
+10.1. Check node logs
+
+```bash
+cd ~/gonka/deploy/join && docker compose logs -f
 ```
+
+10.2. Check tmkms logs
+
+```bash
 docker compose logs tmkms node -f
 ```
 
-Stop node
+10.3. Chain Node
 
+```bash
+docker logs --tail 500 node
 ```
+
+10.4. ML Node
+
+```bash
+docker logs -f join-mlnode-308-1
+```
+
+10.5. Api Node
+
+```bash
+docker logs -f api
+```
+
+10.6. Stop node
+
+```bash
 docker compose down
 ```
 
