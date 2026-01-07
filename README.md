@@ -252,8 +252,10 @@ change ml address with your ml step 7.4.
 
 ```bash
 cd ~/gonka/deploy/join
-source config.env && \
-docker compose -f docker-compose.yml -f docker-compose.mlnode.yml up -d
+```
+
+```bash
+source config.env && docker compose -f docker-compose.yml -f docker-compose.mlnode.yml up -d
 ```
 
 Check your address transaction on Gonka block explorer
