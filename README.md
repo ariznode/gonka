@@ -266,10 +266,16 @@ Check your address transaction on Gonka block explorer
 
 ### 10. Key command
 
+Make sure inside join directory
+
+```bash
+cd ~/gonka/deploy/join
+```
+
 10.1. Check node logs
 
 ```bash
-cd ~/gonka/deploy/join && docker compose logs -f
+docker compose logs -f
 ```
 
 10.2. Check tmkms logs
@@ -278,29 +284,15 @@ cd ~/gonka/deploy/join && docker compose logs -f
 docker compose logs tmkms node -f
 ```
 
-10.3. Chain Node
-
-```bash
-docker logs --tail 500 node
-```
-
-10.4. ML Node
-
-```bash
-docker logs -f join-mlnode-308-1
-```
-
-10.5. Api Node
-
-```bash
-docker logs -f api
-```
-
-10.6. Stop node
+10.3. Stop node
 
 ```bash
 docker compose down
 ```
+
+10.4. Check reward
+
+https://gonkascan.com/
 
 
 
