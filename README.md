@@ -286,13 +286,19 @@ docker compose logs -f
 docker compose logs tmkms node -f
 ```
 
-10.3. Stop node
+10.3. ML logs
+
+```
+docker logs --tail 500 join-mlnode-308-1
+```
+
+10.4. Stop node
 
 ```bash
 docker compose down
 ```
 
-10.4. Check reward
+10.5. Check reward
 
 https://gonkascan.com/
 
